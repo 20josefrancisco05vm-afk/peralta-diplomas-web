@@ -2514,13 +2514,25 @@ main{
 }
 
 .catalog-image{
+
+ position:relative;
+
     height:430px;
+
     background:linear-gradient(135deg,#2d3548,#161d2d);
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     color:#cbd5e1;
+
     font-size:22px;
+
+    overflow:visible;
+
 }
 
 .catalog-content{
@@ -2613,18 +2625,29 @@ main{
 }
 
 .catalog-overlay{
+
     position:absolute;
+
     inset:0;
 
-    background:rgba(0,0,0,.45);
-
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     opacity:0;
 
     transition:.35s ease;
+
+    z-index: 10;
+
+}
+
+.catalog-image:hover .catalog-overlay{
+
+    opacity:1;
+
 }
 
 .catalog-item:hover .catalog-overlay{
@@ -2633,24 +2656,48 @@ main{
 
 .catalog-view{
 
-    background:rgba(255,255,255,.18);
+    display:inline-flex;
 
-    backdrop-filter:blur(10px);
+    align-items:center;
 
-    border:1px solid rgba(255,255,255,.25);
+    justify-content:center;
 
-    color:white;
+    padding:12px 26px;
 
-    padding:14px 24px;
+    background:rgba(40,40,40,.85);
+
+    border:1px solid rgba(255,255,255,.18);
 
     border-radius:999px;
 
-    cursor:pointer;
+    color:#fff;
 
     font-size:15px;
 
-    transition:.30s;
+    font-weight:600;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    transition:.3s;
+
 }
+
+.catalog-view:hover{
+
+    transform:scale(1.05);
+
+    background:rgba(55,55,55,.85);
+
+}
+
 
 .catalog-view:hover{
 
@@ -2674,6 +2721,24 @@ main{
     align-items:center;
 
     z-index:9999;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:.3s ease;
+
+}
+
+.catalog-modal.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
 
 }
 
@@ -3093,4 +3158,28 @@ main{
 
 .catalog-modal-content::-webkit-scrollbar-thumb:hover{
     background:#59627a;
+}
+.catalog-tab-content{
+    display:none;
+}
+
+.catalog-tab-content.active{
+    display:block;
+}
+
+.catalog-list{
+    list-style:none;
+    margin:25px 0 0;
+    padding:0;
+}
+
+.catalog-list li{
+    color:#d8dce5;
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+.catalog-list strong{
+    color:#ffffff;
 }

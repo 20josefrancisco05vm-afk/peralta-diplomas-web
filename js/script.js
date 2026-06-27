@@ -78,3 +78,55 @@ function changeTestimonial(){
 }
 
 setInterval(changeTestimonial, 5000);
+
+// ============================
+// MODAL CATÁLOGO
+// ============================
+
+const modal = document.querySelector(".catalog-modal");
+
+const openButtons = document.querySelectorAll(".catalog-view");
+
+console.log(openButtons);
+
+const closeButton = document.querySelector(".catalog-modal-close");
+
+openButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        modal.classList.add("active");
+
+    });
+
+});
+
+closeButton.addEventListener("click", () => {
+
+    modal.classList.remove("active");
+
+});
+
+alert("JavaScript funcionando");
+
+// ===========================
+// TABS DEL MODAL
+// ===========================
+
+const tabs = document.querySelectorAll(".catalog-tab");
+const contents = document.querySelectorAll(".catalog-tab-content");
+
+tabs.forEach((tab, index) => {
+
+    tab.addEventListener("click", () => {
+
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        tab.classList.add("active");
+        contents[index].classList.add("active");
+
+    });
+
+});
+
